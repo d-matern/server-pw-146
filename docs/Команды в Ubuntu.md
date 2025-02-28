@@ -14,6 +14,11 @@ dpkg -l | grep имя_пакета
 apt list --installed | grep имя_пакета
 ```
 
+- проверить какие ip-адреса работают с портом 3306:
+```bash
+sudo ss -tuln | grep 3306
+```
+
 - проверка системных ресурсов:
 ```bash
 free -h
