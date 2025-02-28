@@ -3,27 +3,27 @@ import { UiInput } from "@/components/ui/form/ui-input";
 import { UiLabel } from "@/components/ui/form/ui-label";
 import Link from "next/link";
 
-export default function IwebHome() {
+export default function IwebEditXML() {
     const defaultCharacter = [
         {
             genus: 'Люди',
-            classes: ['Воин', 'Маг']
+            classes: [{roleId: 16, name: 'Воин'}, {roleId: 19, name: 'Маг'}]
         },
         {
             genus: 'Сиды',
-            classes: ['Лучник', 'Жрец']
+            classes: [{roleId: 28, name: 'Лучник'}, {roleId: 31, name: 'Жрец'}]
         },
         {
             genus: 'Зооморфы',
-            classes: ['Друид', 'Оборотень']
+            classes: [{roleId: 23, name: 'Друид'}, {roleId: 24, name: 'Оборотень'}]
         },
         {
             genus: 'Амфибии',
-            classes: ['Убийца', 'Шаман']
+            classes: [{roleId: 27, name: 'Убийца'}, {roleId: 20, name: 'Шаман'}]
         },
         {
             genus: 'Древние',
-            classes: ['Страж', 'Мистик']
+            classes: [{roleId: 18, name: 'Страж'}, {roleId: 17, name: 'Мистик'}]
         }
     ]
     return (
@@ -37,8 +37,10 @@ export default function IwebHome() {
             <ul className="mt-3">
                 {defaultCharacter.map(char => (
                     <li key={char.genus} className="border-t last:border-b">
-                        {char.classes.map((cs, index) => (
-                            <Link key={index} className="block text-sm" href="#">{char.genus} - {cs}</Link>
+                        {char.classes.map((cs) => (
+                            <Link key={cs.roleId} className="block text-sm" href={`edit-xml/${cs.roleId}`}>
+                                {char.genus} - {cs.name}
+                            </Link>
                         ))}
                     </li>
                 ))}

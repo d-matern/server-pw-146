@@ -1,4 +1,4 @@
-export default function IwebHome() {
+export default function IwebLocationServices() {
     return (
         <div>Iweb | Локации и Службы</div>
     );
